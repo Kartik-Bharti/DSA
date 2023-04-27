@@ -18,42 +18,43 @@ void linklisttraversal(struct node *sk)
 
 struct node *deletionfrombegining(struct node *head)
 {
-    struct node *ptr = head;
-    struct node *p = ptr->next;
-    p->previous = NULL;
-    free(ptr);
-    head = p;
+    struct node *ptr1 = head;
+    struct node *ptr = ptr1->next;
+    ptr->previous = NULL;
+    free(ptr1);
+    head = ptr;
     return head;
 }
 
 struct node deletioninbetween(struct node *head, int index)
 {
-    struct node *ptr = head;
-    struct node *p = ptr->next;
+    struct node *ptr1 = head;
+    struct node *ptr = ptr1->next;
     int i = 0;
     while (i != index)
     {
+        ptr1 = ptr1->next;
         ptr = ptr->next;
-        p = ptr->next;
         i++;
     }
-    ptr->previous->next = p;
-    p->previous = ptr->previous;
-    free(ptr);
+    ptr1->previous->next = ptr;
+    ptr->previous = ptr1->previous;
+    free(ptr1);
 }
 
 struct node deletionfromlast(struct node *head)
 {
-    struct node *p = head;
-    struct node *ptr = p->next;
+    struct node *ptr1 = head;
+    struct node *ptr = ptr1->next;
     while (ptr != NULL)
     {
-        p = p->next;
-        ptr = ptr->next;
+        ptr1 = ptr1->next;
+        ptr = ptr1->next;
     }
-    p->next = NULL;
+    ptr->next = NULL;
     free(ptr);
 }
+
 int main()
 {
     struct node *head;
@@ -101,12 +102,12 @@ int main()
     linklisttraversal(head);
 
     printf("*************************************\n");
-    printf("deletion from begining\n");
+    printf("element deleted from between\n");
     deletioninbetween(head, 1);
     linklisttraversal(head);
 
     printf("*************************************\n");
-    printf("deletion from last\n");
+    printf("element deleted from last\n");
     deletionfromlast(head);
     linklisttraversal(head);
 
