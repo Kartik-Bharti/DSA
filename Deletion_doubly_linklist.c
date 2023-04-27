@@ -110,6 +110,5 @@ int main()
     printf("element deleted from last\n");
     deletionfromlast(head);
     linklisttraversal(head);
-
     return 0;
 }
