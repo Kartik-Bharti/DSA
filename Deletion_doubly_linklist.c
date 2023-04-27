@@ -49,9 +49,9 @@ struct node deletionfromlast(struct node *head)
     while (ptr != NULL)
     {
         ptr1 = ptr1->next;
-        ptr = ptr1->next;
+        ptr = ptr->next;
     }
-    ptr->next = NULL;
+    ptr1->next = NULL;
     free(ptr);
 }
 
