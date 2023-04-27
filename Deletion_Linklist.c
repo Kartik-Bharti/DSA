@@ -15,23 +15,23 @@ void linklisttraversal(struct node *sk)
 }
 struct node *deleteionatbegining(struct node *head)
 {
-    struct node *ptr = head;
+    struct node *ptr1 = head;
     head = head->next;
-    free(ptr);
+    free(ptr1);
     return head;
 }
 struct node *deletioninbetween(struct node *head, int index)
 {
-    struct node *p = head;
-    struct node *ptr = p->next;
+    struct node *ptr1 = head;
+    struct node *ptr = ptr1->next;
     int i = 0;
     while (i != index - 1)
     {
-        p = p->next;
-        ptr = p->next;
+        ptr1 = ptr1->next;
+        ptr = ptr1->next;
         i++;
     }
-    p->next = ptr->next;
+    ptr1->next = ptr->next;
     free(ptr);
 }
 
@@ -50,16 +50,16 @@ struct node *deletedfromlast(struct node *head)
 
 struct node *deletedfromvalue(struct node *head, int val)
 {
-    struct node *p = head;
-    struct node *ptr = p->next;
+    struct node *ptr1 = head;
+    struct node *ptr = ptr1->next;
     while (ptr->data != val)
     {
-        p = p->next;
+        ptr1 = ptr1->next;
         ptr = ptr->next;
     }
     if (ptr->data == val)
     {
-        p->next = ptr->next;
+        ptr1->next = ptr->next;
         free(ptr);
         printf("Element deleted from given value\n");
         linklisttraversal(head);
