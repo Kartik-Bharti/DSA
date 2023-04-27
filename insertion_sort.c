@@ -1,12 +1,12 @@
 #include <stdio.h>
 int main()
 {
-    int arr[5], temp, j;
-    printf("Enter 5 Elements in array\n");
-    for (int i = 0; i < 5; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
+    int arr[5] = {23, 45, 3, 667, 1}, temp, j;
+    // printf("Enter 5 Elements in array\n");
+    // for (int i = 0; i < 5; i++)
+    // {
+    //     scanf("%d", &arr[i]);
+    // }
     printf("Element after insertion sort\n");
     for (int i = 0; i < 5; i++)
     {
@@ -21,11 +21,6 @@ int main()
             printf("%d  ", arr[j]);
         }
         printf("\n");
-    }
-
-    for (int k = 0; k < 5; k++)
-    {
-        printf("%d  ", arr[k]);
     }
     return 0;
 }
