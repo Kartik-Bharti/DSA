@@ -51,7 +51,7 @@ struct node deletionfromlast(struct node *head)
         ptr1 = ptr1->next;
         ptr = ptr->next;
     }
-    ptr1->next = NULL;
+    ptr1->previous->next = NULL;
     free(ptr);
 }
 
