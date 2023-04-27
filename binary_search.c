@@ -33,8 +33,9 @@ int main()
     printf("Elements of array are\n");
     for (int i = 0; i < n; i++)
     {
-        printf("%d \n", arr[i]);
+        printf("%d ", arr[i]);
     }
+    printf("\n");
     printf("elment to found is =  %d\n", val);
     if (value == -1)
     {
