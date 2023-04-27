@@ -28,7 +28,7 @@ struct node *insertionatbegining(struct node *head, int val)
     return head;
 }
 
-struct node *insertioninbetween(struct node *head, int index, int val)
+struct node insertioninbetween(struct node *head, int index, int val)
 {
     struct node *ptr = (struct node *)malloc(sizeof(struct node));
     struct node *p = head;
