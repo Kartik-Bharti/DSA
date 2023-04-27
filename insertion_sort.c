@@ -2,7 +2,7 @@
 int main()
 {
     int arr[5], temp, j;
-    printf("Enter elements of array\n");
+    printf("Enter 5 Elements in array\n");
     for (int i = 0; i < 5; i++)
     {
         scanf("%d", &arr[i]);
@@ -10,16 +10,19 @@ int main()
     printf("Element after insertion sort\n");
     for (int i = 0; i < 5; i++)
     {
-        for (j = i+1; j<5; j++)
+        for (j = 0; j <= i; j++)
         {
-            if (arr[i] > arr[j])
+            if (arr[j] > arr[i])
             {
                 temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
+            printf("%d  ", arr[j]);
         }
+        printf("\n");
     }
+
     for (int k = 0; k < 5; k++)
     {
         printf("%d  ", arr[k]);
