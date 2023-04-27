@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 struct node
 {
     struct node *next;
@@ -9,49 +9,49 @@ struct node
 
 void linklisttraversal(struct node *sk)
 {
-    while(sk->next!=NULL)
+    while (sk->next != NULL)
     {
-        printf("Element:   %d\n",sk->data);
-        sk=sk->next;
+        printf("Element:   %d\n", sk->data);
+        sk = sk->next;
     }
 }
 
 struct node *deletionfrombegining(struct node *head)
 {
-    struct node *ptr=head;
-    struct node *p=ptr->next;
-    p->previous=NULL;
+    struct node *ptr = head;
+    struct node *p = ptr->next;
+    p->previous = NULL;
     free(ptr);
-    head=p;
+    head = p;
     return head;
 }
 
-struct node deletioninbetween(struct node *head,int index)
+struct node deletioninbetween(struct node *head, int index)
 {
-    struct node *ptr=head;
-    struct node *p=ptr->next;
-    int i=0;
-    while(i!=index)
+    struct node *ptr = head;
+    struct node *p = ptr->next;
+    int i = 0;
+    while (i != index)
     {
-        ptr=ptr->next;
-        p=ptr->next;
+        ptr = ptr->next;
+        p = ptr->next;
         i++;
     }
-    ptr->previous->next=p;
-    p->previous=ptr->previous;
+    ptr->previous->next = p;
+    p->previous = ptr->previous;
     free(ptr);
 }
 
 struct node deletionfromlast(struct node *head)
 {
-    struct node *p=head;
-    struct node *ptr=p->next;
-    while(ptr!=NULL)
+    struct node *p = head;
+    struct node *ptr = p->next;
+    while (ptr != NULL)
     {
-        p=p->next;
-        ptr=ptr->next;
+        p = p->next;
+        ptr = ptr->next;
     }
-    p->next=NULL;
+    p->next = NULL;
     free(ptr);
 }
 int main()
@@ -61,54 +61,54 @@ int main()
     struct node *third;
     struct node *fourth;
     struct node *fifth;
-    head=(struct node *)malloc(sizeof(struct node));
-    second=(struct node *)malloc(sizeof(struct node));
-    third=(struct node *)malloc(sizeof(struct node));
-    fourth=(struct node *)malloc(sizeof(struct node));
-    fifth=(struct node *)malloc(sizeof(struct node));
+    head = (struct node *)malloc(sizeof(struct node));
+    second = (struct node *)malloc(sizeof(struct node));
+    third = (struct node *)malloc(sizeof(struct node));
+    fourth = (struct node *)malloc(sizeof(struct node));
+    fifth = (struct node *)malloc(sizeof(struct node));
 
-    // linking first node with second node 
-    head->data=2;
-    head->previous=NULL;
-    head->next=second;
+    // linking first node with second node
+    head->data = 2;
+    head->previous = NULL;
+    head->next = second;
 
-    // linking second node with third node 
-    second->data=30;
-    second->previous=head;
-    second->next=third;
+    // linking second node with third node
+    second->data = 30;
+    second->previous = head;
+    second->next = third;
 
-    // linking third node with fourth node 
-    third->data=2003;
-    third->previous=second;
-    third->next=fourth;
+    // linking third node with fourth node
+    third->data = 2003;
+    third->previous = second;
+    third->next = fourth;
 
-    // linking fourth node with fifth node 
-    fourth->data=2005;
-    fourth->previous=third;
-    fourth->next=fifth;
+    // linking fourth node with fifth node
+    fourth->data = 2005;
+    fourth->previous = third;
+    fourth->next = fifth;
 
     // terminating the fifth node
-    fifth->data=7;
-    fifth->previous=fourth;
-    fifth->next=NULL;
+    fifth->data = 7;
+    fifth->previous = fourth;
+    fifth->next = NULL;
 
-    printf("Insertion done\n"); 
+    printf("Insertion done\n");
     linklisttraversal(head);
 
     printf("*************************************\n");
     printf("Element deleted from begining\n");
-    head=deletionfrombegining(head);
+    head = deletionfrombegining(head);
     linklisttraversal(head);
-    
+
     printf("*************************************\n");
-    printf("deletion from begining\n"); 
-    deletioninbetween(head,1);
+    printf("deletion from begining\n");
+    deletioninbetween(head, 1);
     linklisttraversal(head);
-    
+
     printf("*************************************\n");
     printf("deletion from last\n");
-    deletionfromlast(head); 
+    deletionfromlast(head);
     linklisttraversal(head);
-    
+
     return 0;
 }
