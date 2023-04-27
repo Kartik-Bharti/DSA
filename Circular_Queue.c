@@ -7,6 +7,7 @@ struct queue
     int front;
     int *arr;
 };
+
 int isfull(struct queue *q)
 {
     if (q->front == (q->rear + 1) % q->size)
@@ -14,6 +15,7 @@ int isfull(struct queue *q)
     else
         return 0;
 }
+
 void enqueue(struct queue *q, int val)
 {
     if (isfull(q))
@@ -27,6 +29,7 @@ void enqueue(struct queue *q, int val)
         printf("value inserted sucessfully\n");
     }
 }
+
 int isempty(struct queue *q)
 {
     if (q->front == -1)
@@ -34,6 +37,7 @@ int isempty(struct queue *q)
     else
         return 0;
 }
+
 void dequeue(struct queue *q)
 {
     if (isempty(q))
@@ -48,6 +52,7 @@ void dequeue(struct queue *q)
         printf("value is :-  %d\n", val);
     }
 }
+
 int main()
 {
     int val;

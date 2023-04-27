@@ -55,7 +55,7 @@ struct node deletionfromlast(struct node *head)
     free(ptr);
 }
 
-int main()
+void main()
 {
     struct node *head;
     struct node *second;
@@ -110,5 +110,4 @@ int main()
     printf("element deleted from last\n");
     deletionfromlast(head);
     linklisttraversal(head);
-    return 0;
 }

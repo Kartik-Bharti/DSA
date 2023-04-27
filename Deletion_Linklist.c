@@ -5,6 +5,7 @@ struct node
     int data;
     struct node *next;
 };
+
 void linklisttraversal(struct node *sk)
 {
     while (sk != NULL)
@@ -13,6 +14,7 @@ void linklisttraversal(struct node *sk)
         sk = sk->next;
     }
 }
+
 struct node *deleteionatbegining(struct node *head)
 {
     struct node *ptr1 = head;
@@ -20,6 +22,7 @@ struct node *deleteionatbegining(struct node *head)
     free(ptr1);
     return head;
 }
+
 struct node *deletioninbetween(struct node *head, int index)
 {
     struct node *ptr1 = head;
@@ -70,6 +73,7 @@ struct node *deletedfromvalue(struct node *head, int val)
         printf("Element not found in Queue\n");
     }
 }
+
 int main()
 {
     int value;
