@@ -13,7 +13,7 @@ int partiationalgo(int arr[], int i, int j)
 {
     int r, l = 0;
     int pivot = arr[i];
-    for (r = i + 1; r <= j; r++)
+    for (r = j; r > 0; r--)
     {
         if (pivot > arr[r])
         {
@@ -30,7 +30,6 @@ void quicksort(int arr[], int i, int j)
     if (i < j)
     {
         int pi = partiationalgo(arr, i, j);
-        printf("%d ", pi);
         // recursive call on the left of pivot
         quicksort(arr, i, pi - 1);
         // recursive call on the right of pivot
@@ -50,12 +49,11 @@ void printArray(int arr[], int size)
 
 int main()
 {
-    int arr[] = {34, 23, 53, 5, 65, 3, 88, 49, 70};
+    int arr[] = {8, 7, 2, 1, 0, 9, 6};
     int n = sizeof(arr) / sizeof(arr[0]);
     printf("Unsorted Array\n");
     printArray(arr, n);
     quicksort(arr, 0, n - 1);
-    printf("hello");
     printf("Sorted array in ascending order: \n");
     printArray(arr, n);
     return 0;
