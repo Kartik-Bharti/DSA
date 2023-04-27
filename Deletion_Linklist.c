@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 struct node
 {
     int data;
@@ -7,59 +7,59 @@ struct node
 };
 void linklisttraversal(struct node *sk)
 {
-    while(sk!=NULL)
+    while (sk != NULL)
     {
-        printf("Element:   %d\n",sk->data);
-        sk=sk->next;
+        printf("Element:   %d\n", sk->data);
+        sk = sk->next;
     }
 }
 struct node *deleteionatbegining(struct node *head)
 {
-    struct node *ptr=head;
-    head=head->next;
+    struct node *ptr = head;
+    head = head->next;
     free(ptr);
     return head;
 }
-struct node *deletioninbetween(struct node *head,int index)
+struct node *deletioninbetween(struct node *head, int index)
 {
-    struct node *p=head;
-    struct node *ptr=p->next;
-    int i=0;
-    while(i!=index-1)
+    struct node *p = head;
+    struct node *ptr = p->next;
+    int i = 0;
+    while (i != index - 1)
     {
-        p=p->next;
-        ptr=p->next;
+        p = p->next;
+        ptr = p->next;
         i++;
     }
-    p->next=ptr->next;
+    p->next = ptr->next;
     free(ptr);
 }
 
 struct node *deletedfromlast(struct node *head)
 {
-    struct node *p=head;
-    struct node *ptr=p->next;
-    while(ptr->next!=NULL)
+    struct node *p = head;
+    struct node *ptr = p->next;
+    while (ptr->next != NULL)
     {
-        p=p->next;
-        ptr=ptr->next;
+        p = p->next;
+        ptr = ptr->next;
     }
-    p->next=NULL;
+    p->next = NULL;
     free(ptr);
 }
 
-struct node *deletedfromvalue(struct node *head,int val)
+struct node *deletedfromvalue(struct node *head, int val)
 {
-    struct node *p=head;
-    struct node *ptr=p->next;
-    while(ptr->data!=val)
+    struct node *p = head;
+    struct node *ptr = p->next;
+    while (ptr->data != val)
     {
-        p=p->next;
-        ptr=ptr->next;
+        p = p->next;
+        ptr = ptr->next;
     }
-    if(ptr->data==val)
+    if (ptr->data == val)
     {
-        p->next=ptr->next;
+        p->next = ptr->next;
         free(ptr);
         printf("Element deleted from given value\n");
         linklisttraversal(head);
@@ -79,46 +79,46 @@ int main()
     struct node *fourth;
     struct node *fifth;
     struct node *sixth;
-    head=(struct node *)malloc(sizeof(struct node));
-    second=(struct node *)malloc(sizeof(struct node));
-    third=(struct node *)malloc(sizeof(struct node));
-    fourth=(struct node *)malloc(sizeof(struct node));
-    fifth=(struct node *)malloc(sizeof(struct node));
-    sixth=(struct node *)malloc(sizeof(struct node));
+    head = (struct node *)malloc(sizeof(struct node));
+    second = (struct node *)malloc(sizeof(struct node));
+    third = (struct node *)malloc(sizeof(struct node));
+    fourth = (struct node *)malloc(sizeof(struct node));
+    fifth = (struct node *)malloc(sizeof(struct node));
+    sixth = (struct node *)malloc(sizeof(struct node));
 
     // linking First and second node
-    head->data=2;
-    head->next=second;
-    
+    head->data = 2;
+    head->next = second;
+
     // linking second and third node
-    second->data=30;
-    second->next=third;
+    second->data = 30;
+    second->next = third;
 
     // Linking the third node with fourth node
-    third->data=2003;
-    third->next=fourth;
+    third->data = 2003;
+    third->next = fourth;
 
     // linking the fourth node with fifth
-    fourth->data=2005;
-    fourth->next=fifth;
+    fourth->data = 2005;
+    fourth->next = fifth;
 
     // Linkin the fifth node with sixth
-    fifth->data=32;
-    fifth->next=sixth;
+    fifth->data = 32;
+    fifth->next = sixth;
 
     // Terminating sixth node
-    sixth->data=8;
-    sixth->next=NULL;
+    sixth->data = 8;
+    sixth->next = NULL;
 
     printf("Linked-list formed\n");
     linklisttraversal(head);
 
     printf("\nElement deleted from begining of list\n");
-    head=deleteionatbegining(head);
+    head = deleteionatbegining(head);
     linklisttraversal(head);
 
     printf("\nElement deleted in between of link list\n");
-    deletioninbetween(head,1);
+    deletioninbetween(head, 1);
     linklisttraversal(head);
 
     printf("\nElement deleted from last\n");
@@ -127,7 +127,7 @@ int main()
 
     // Deleting element from specific value
     printf("\nEnter element you want to delete from list\n");
-    scanf("%d",&value);
-    deletedfromvalue(head,value);
+    scanf("%d", &value);
+    deletedfromvalue(head, value);
     return 0;
 }
