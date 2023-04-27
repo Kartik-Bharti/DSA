@@ -1,32 +1,62 @@
-#include<stdio.h>
-void quicksort(int arr[],int first,int last)
+// Quick sort in C
+#include <stdio.h>
+
+// function to swap elements
+void swap(int *a, int *b)
 {
-    int r,temp1,temp2,l=0;
-    int i=first;
-    int j=last;
-    int pivot=arr[0];
-    for (r = i+1; r <= j; r++)
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int partiationalgo(int arr[], int i, int j)
+{
+    int r, l = 0;
+    int pivot = arr[i];
+    for (r = i + 1; r <= j; r++)
     {
-       if(pivot>arr[r])
-       {
+        if (pivot > arr[r])
+        {
             l++;
-            temp1= arr[l];
-            arr[l]=arr[r];
-            arr[r]=temp1;
-       }
+            swap(&arr[l], &arr[r]);
+        }
     }
-    temp2=arr[l];
-    arr[l]=pivot;
-    pivot=temp2; 
-    for (int k = 0; k<=last; k++)
+    swap(&arr[l], &pivot);
+    return l;
+}
+
+void quicksort(int arr[], int i, int j)
+{
+    if (i < j)
     {
-        printf("%d  ",arr[k]);
+        int pi = partiationalgo(arr, i, j);
+        printf("%d ", pi);
+        // recursive call on the left of pivot
+        quicksort(arr, i, pi - 1);
+        // recursive call on the right of pivot
+        quicksort(arr, pi + 1, j);
     }
 }
+
+// function to print array elements
+void printArray(int arr[], int size)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        printf("%d  ", arr[i]);
+    }
+    printf("\n");
+}
+
 int main()
 {
-    int arr[]={34,23,53,5,65,3,88,49,70}; 
-    int n=sizeof(arr)/sizeof(arr[0]);
-    quicksort(arr,0,n-1);
+    int arr[] = {34, 23, 53, 5, 65, 3, 88, 49, 70};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Unsorted Array\n");
+    printArray(arr, n);
+    quicksort(arr, 0, n - 1);
+    printf("hello");
+    printf("Sorted array in ascending order: \n");
+    printArray(arr, n);
     return 0;
 }
