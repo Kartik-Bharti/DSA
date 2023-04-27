@@ -37,14 +37,14 @@ struct node *deletioninbetween(struct node *head, int index)
 
 struct node *deletedfromlast(struct node *head)
 {
-    struct node *p = head;
-    struct node *ptr = p->next;
+    struct node *ptr1 = head;
+    struct node *ptr = ptr1->next;
     while (ptr->next != NULL)
     {
-        p = p->next;
+        ptr1 = ptr1->next;
         ptr = ptr->next;
     }
-    p->next = NULL;
+    ptr1->next = NULL;
     free(ptr);
 }
 
