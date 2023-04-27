@@ -2,8 +2,8 @@
 #include<stdlib.h>
 struct node
 {
-    int data;
     struct node *next;
+    int data;
     struct node *previous;
 };
 
@@ -26,7 +26,7 @@ struct node *deletionfrombegining(struct node *head)
     return head;
 }
 
-struct node *deletioninbetween(struct node *head,int index)
+struct node deletioninbetween(struct node *head,int index)
 {
     struct node *ptr=head;
     struct node *p=ptr->next;
@@ -42,7 +42,7 @@ struct node *deletioninbetween(struct node *head,int index)
     free(ptr);
 }
 
-struct node *deletionfromlast(struct node *head)
+struct node deletionfromlast(struct node *head)
 {
     struct node *p=head;
     struct node *ptr=p->next;
