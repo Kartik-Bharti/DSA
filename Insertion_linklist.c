@@ -1,86 +1,86 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 struct node
 {
     int data;
     struct node *next;
 };
-void linklisttraversal(struct node *sk)
+void linklisttraversal(struct node *head)
 {
-    while(sk!=NULL)
+    while (head != NULL)
     {
-        printf("Element:   %d\n",sk->data);
-        sk=sk->next;
+        printf("Element:   %d\n", head->data);
+        head = head->next;
     }
 }
 
-struct node *insertatbegining(struct node *head,int val)
+struct node *insertatbegining(struct node *head, int val)
 {
-    struct node *ptr=(struct node*)malloc(sizeof(struct node));
-    ptr->next=head;
-    ptr->data=val;
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    ptr->next = head;
+    ptr->data = val;
     return ptr;
 };
 
-struct node *insertinbetween(struct node *head,int val,int index)
+struct node *insertinbetween(struct node *head, int val, int index)
 {
-    struct node *ptr=(struct node*)malloc(sizeof(struct node));
-    struct node *p=head;
-    int i=0;
-    while (i!=index-1)
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    struct node *ptr1 = head;
+    int i = 0;
+    while (i != index - 1)
     {
-        p=p->next;
+        ptr1 = ptr1->next;
         i++;
     }
-    ptr->next=p->next;
-    p->next=ptr;
-    ptr->data=val;   
+    ptr->next = ptr1->next;
+    ptr1->next = ptr;
+    ptr->data = val;
 }
 
-struct node *insertatlast(struct node *head,int val)
+struct node *insertatlast(struct node *head, int val)
 {
-    struct node *ptr=(struct node *)malloc(sizeof(struct node));
-    struct node *p=head;
-    while (p->next!=NULL)
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    struct node *ptr1 = head;
+    while (ptr1->next != NULL)
     {
-        p=p->next;
+        ptr1 = ptr1->next;
     }
-    p->next=ptr;
-    ptr->next=NULL;
-    ptr->data=val;
+    ptr1->next = ptr;
+    ptr->next = NULL;
+    ptr->data = val;
 }
 int main()
 {
     struct node *head;
     struct node *second;
     struct node *third;
-    head=(struct node *)malloc(sizeof(struct node));
-    second=(struct node *)malloc(sizeof(struct node));
-    third=(struct node *)malloc(sizeof(struct node));
+    head = (struct node *)malloc(sizeof(struct node));
+    second = (struct node *)malloc(sizeof(struct node));
+    third = (struct node *)malloc(sizeof(struct node));
 
     // linking First and second node
-    head->data=2;
-    head->next=second;
-    
+    head->data = 2;
+    head->next = second;
+
     // linking second and third node
-    second->data=30;
-    second->next=third;
+    second->data = 30;
+    second->next = third;
 
     // terminating the third node
-    third->data=2030;
-    third->next=NULL;
-    printf("Insertion done\n"); 
+    third->data = 2030;
+    third->next = NULL;
+    printf("Insertion done\n");
     linklisttraversal(head);
 
-    head=insertatbegining(head,2005);
+    head = insertatbegining(head, 2005);
     printf("Insertion at begining is done\n");
     linklisttraversal(head);
 
-    insertinbetween(head,34,2);
+    insertinbetween(head, 34, 2);
     printf("Insertion in between is done\n");
     linklisttraversal(head);
 
-    insertatlast(head,22);
+    insertatlast(head, 22);
     printf("Insertion in last is done\n");
     linklisttraversal(head);
     return 0;

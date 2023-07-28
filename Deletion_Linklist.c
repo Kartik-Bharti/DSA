@@ -6,12 +6,12 @@ struct node
     struct node *next;
 };
 
-void linklisttraversal(struct node *sk)
+void linklisttraversal(struct node *head)
 {
-    while (sk != NULL)
+    while (head != NULL)
     {
-        printf("Element:   %d\n", sk->data);
-        sk = sk->next;
+        printf("Element:   %d\n", head->data);
+        head = head->next;
     }
 }
 

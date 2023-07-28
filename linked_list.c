@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 struct node
 {
     int data;
     struct node *next;
 };
+
 void linklisttraversal(struct node *ptr)
 {
     while (ptr != NULL)
@@ -13,6 +15,7 @@ void linklisttraversal(struct node *ptr)
         ptr = ptr->next;
     }
 }
+
 int main()
 {
     struct node *head;
